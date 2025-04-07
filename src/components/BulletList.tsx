@@ -18,9 +18,7 @@ export function BulletList({list}) {
                 <TimelineItem key={index}>
                 <TimelineConnector />
                 <TimelineHeader className="h-3">
-                    <TimelineIcon className="p-0">
-                     <Avatar size="sm" src={item.logo} color="white"/>
-                    </TimelineIcon>
+                    <TimelineIcon />
                     <Typography variant="h6" color="blue-gray" className="leading-none font-bold">
                     {item.title} { item.client ? `(${item.client})` : ""}
                     </Typography>
