@@ -5,11 +5,21 @@ import {
   TimelineHeader,
   TimelineIcon,
   TimelineBody,
-  Typography,
-  Avatar,
 } from "@material-tailwind/react";
  
-export function BulletList({list}) {
+interface BulletListItem {
+  title: string;
+  client?: string;
+  company: string;
+  date: string;
+  description?: string[];
+}
+
+interface BulletListProps {
+  list: BulletListItem[];
+}
+
+export function BulletList({ list }: BulletListProps) {
   return (
     
       <Timeline>
@@ -19,9 +29,9 @@ export function BulletList({list}) {
                 <TimelineConnector />
                 <TimelineHeader className="h-3">
                     <TimelineIcon />
-                    <Typography variant="h6" color="blue-gray" className="leading-none font-bold">
+                    <p className="text-gray-700 leading-none font-bold">
                     {item.title} { item.client ? `(${item.client})` : ""}
-                    </Typography>
+                    </p>
                 </TimelineHeader>
                 <TimelineBody className="pb-8">
                     <p className="text-gray-600 font-semibold">{item.company}</p>
