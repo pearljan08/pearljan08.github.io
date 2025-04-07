@@ -2,6 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { Button } from '@material-tailwind/react'
 import me from './assets/me.jpg';
+import { BeakerIcon } from '@heroicons/react/24/solid';
+import { BulletList } from './components/BulletList';
+import { experienceList } from './components/ExperienceList';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,12 +14,16 @@ function App() {
       <div className="flex items-center mx-64 my-5">
         <div className="grid grid-cols-3 grid-rows-3 gap-5 w-full h-screen">
           <div className="row-span-2 size-full rounded-xl shadow-lg border border-gray-100">
-            
+            <div className="flex flex-col justify-center p-10 gap-10">
+              <h1 className="text-5xl font-bold text-gray-800">Work Experience</h1>
+              <hr className="w-full text-blue-gray-100"/>
+              <BulletList list={experienceList}/>
+            </div>
           </div>
           <div className="col-span-2 w-full h-full rounded-xl shadow-lg border border-gray-100">
             <div className="grid grid-cols-4 h-full">
-              <div className="">
-                
+              <div className="flex flex-row items-center">
+                <BeakerIcon className="text-gray-300"/>
               </div>
               <div className="col-span-2 flex items-center justify-end">
                 <div className="flex flex-col text-right">
