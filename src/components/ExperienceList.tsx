@@ -36,7 +36,7 @@ export const experienceList = [
     },
     {
         title: "Web Developer",
-        client: null,
+        client: "",
         company: "Pinnacle Technologies",
         date: "January 2022 - August 2024",
         description: [

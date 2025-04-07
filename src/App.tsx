@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import './App.css'
-import { Button, Chip } from '@material-tailwind/react'
 import me from './assets/me.jpg';
 import { BeakerIcon, BookOpenIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
 import { BulletList } from './components/BulletList';
@@ -9,7 +7,6 @@ import TechStack from './components/TechStack';
 import { backendList, frontendList } from './components/TechStackList';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -64,11 +61,11 @@ function App() {
             <hr className="w-full my-3 text-gray-300"/>
             <p className="text-md font-bold text-gray-600">Front-end</p>
             <div className="flex flex-row justify-start gap-1 pt-1.5">
-              <TechStack techStack={frontendList} size="sm"/>
+              <TechStack techStack={frontendList}/>
             </div>
             <p className="text-md font-bold text-gray-600 pt-3">Back-end</p>
             <div className="flex flex-row justify-start gap-1 pt-1.5">
-              <TechStack techStack={backendList} size="sm"/>
+              <TechStack techStack={backendList}/>
             </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
-import { Chip } from "@material-tailwind/react"
+interface TechStackProps {
+  techStack: { name: string }[];
+}
 
-const TechStack = ({techStack, size}) => {
+const TechStack = ({ techStack }: TechStackProps) => {
   return (
     <>
       {
