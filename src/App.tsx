@@ -1,10 +1,13 @@
 import './App.css'
 import me from './assets/me.jpg';
-import { BeakerIcon, BookOpenIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
+import { BeakerIcon, BookOpenIcon, BriefcaseIcon, ChevronLeftIcon, ClipboardDocumentListIcon, CogIcon } from '@heroicons/react/24/solid';
 import { BulletList } from './components/BulletList';
 import { experienceList } from './components/ExperienceList';
 import TechStack from './components/TechStack';
 import { backendList, frontendList } from './components/TechStackList';
+import { Projects } from './components/Projects';
+import { projectList } from './components/ProjectList';
+import { Carousel, IconButton } from '@material-tailwind/react';
 
 function App() {
 
@@ -14,9 +17,11 @@ function App() {
         <div className="grid grid-cols-3 grid-rows-3 gap-5 w-full h-screen">
           <div className="row-span-2 size-full rounded-xl shadow-lg border border-gray-50 bg-gray-50">
             <div className="flex flex-col justify-center p-8 gap-8">
-              <h1 className="text-4xl font-bold text-gray-700 flex flex-row gap-3"><BriefcaseIcon className="w-1/9 text-gray-700"/>Work Experience</h1>
+              <h1 className="text-3xl font-bold text-gray-700 flex flex-row gap-3"><BriefcaseIcon className="w-1/11 text-gray-700"/>Work Experience</h1>
               <hr className="w-full text-gray-300"/>
+              <div className="">
               <BulletList list={experienceList}/>
+              </div>
             </div>
           </div>
           <div className="col-span-2 w-full h-full rounded-xl shadow-lg border border-gray-50 bg-gray-50">
@@ -44,9 +49,9 @@ function App() {
 
           <div className="size-full rounded-xl shadow-lg border-1 border-gray-50 bg-gray-50">
             <div className="flex flex-col h-full p-5">
-              <p className="text-4xl font-bold text-gray-700 flex flex-row gap-3"><BookOpenIcon className="w-1/9 text-gray-700"/>About</p>
+              <p className="text-3xl font-bold text-gray-700 flex flex-row gap-3"><BookOpenIcon className="w-1/11 text-gray-700"/>About</p>
               <hr className="w-full my-3 text-gray-300"/>
-              <p className="text-gray-700 text-sm">
+              <p className="text-gray-600 text-md overflow-auto">
               I am passionate about creating user-friendly interfaces and optimizing performance to enhance
               user experience. I am a quick learner and adaptable to new technologies, and I thrive in
               fast-paced environments. I am committed to continuous learning and professional growth, and
@@ -57,21 +62,59 @@ function App() {
           </div>
           <div className="size-full rounded-xl shadow-lg border-1 border-gray-50 bg-gray-50">
             <div className="flex flex-col h-full p-5">
-            <p className="text-4xl text-gray-700 font-bold">Tech Stack</p>
-            <hr className="w-full my-3 text-gray-300"/>
-            <p className="text-md font-bold text-gray-600">Front-end</p>
-            <div className="flex flex-row justify-start gap-1 pt-1.5">
-              <TechStack techStack={frontendList}/>
-            </div>
-            <p className="text-md font-bold text-gray-600 pt-3">Back-end</p>
-            <div className="flex flex-row justify-start gap-1 pt-1.5">
-              <TechStack techStack={backendList}/>
-            </div>
+              <p className="text-3xl text-gray-700 font-bold flex flex-row gap-3"><CogIcon className="w-1/11 text-gray-700"/>Tech Stack</p>
+              <hr className="w-full my-3 text-gray-300"/>
+              <p className="text-md font-bold text-gray-600">Front-end</p>
+              <div className="flex flex-row justify-start gap-1 pt-1.5">
+                <TechStack techStack={frontendList}/>
+              </div>
+              <p className="text-md font-bold text-gray-600 pt-3">Back-end</p>
+              <div className="flex flex-row justify-start gap-1 pt-1.5">
+                <TechStack techStack={backendList}/>
+              </div>
             </div>
           </div>
-          <div className="col-span-2 size-full rounded-xl shadow-lg border-1 border-gray-50">
-            <div className="flex items-center justify-center h-full">
-            <p>Projects I've worked on...</p>
+          <div className="col-span-2 size-full rounded-xl shadow-lg border-1 border-gray-50 bg-gray-50">
+            <div className="flex flex-col p-3 h-full">
+              <p className="text-xl text-gray-700 font-bold flex flex-row gap-1"><ClipboardDocumentListIcon className="w-1/25 text-gray-700"/>Projects I've worked on..</p>
+              <Carousel 
+                className="py-2 h-[22rem]"
+                prevArrow={({ handlePrev }) => (
+                  <IconButton
+                    variant="text"
+                    color="white"
+                    size="lg"
+                    onClick={handlePrev}
+                    className="!absolute top-2/4 left-4 -translate-y-2/4"
+                  >
+                    <i className="fa-solid fa-left-long text-gray-600"/>
+                  </IconButton>
+                )}
+                nextArrow={({ handleNext }) => (
+                  <IconButton
+                    variant="text"
+                    color="white"
+                    size="lg"
+                    onClick={handleNext}
+                    className="!absolute top-2/4 !right-4 -translate-y-2/4"
+                  >
+                    <i className="fa-solid fa-right-long text-gray-600"/>
+                  </IconButton>
+                )}
+                >
+              {
+                projectList.map((project, index) => (
+                  <Projects
+                    key={index}
+                    cardImg={typeof project.image === 'string' ? project.image : ''}
+                    cardTitle={project.name}
+                    cardDescription={project.description} readMore={function (): void {
+                      throw new Error('Function not implemented.');
+                    } }                    
+                  />
+                ))
+              }
+              </Carousel>
             </div>
           </div>
           <div className="size-full rounded-xl shadow-lg border-1 border-gray-50">
