@@ -8,8 +8,21 @@ import { backendList, frontendList } from './components/TechStackList';
 import { Projects } from './components/Projects';
 import { projectList } from './components/ProjectList';
 import { Carousel, IconButton } from '@material-tailwind/react';
+import { useState } from 'react';
+import { Project } from './components/Project';
 
 function App() {
+
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+
+  const handleOpen = (id: string) => {
+    setActiveProjectId(id);
+  };
+
+  const handleClose = () => {
+    setActiveProjectId(null);
+  };
+   
 
   return (
     <>
@@ -101,17 +114,22 @@ function App() {
                     <i className="fa-solid fa-right-long text-gray-600"/>
                   </IconButton>
                 )}
+                loop
+                autoplay
                 >
               {
                 projectList.map((project, index) => (
-                  <Projects
-                    key={index}
-                    cardImg={typeof project.image === 'string' ? project.image : ''}
-                    cardTitle={project.name}
-                    cardDescription={project.description} readMore={function (): void {
-                      throw new Error('Function not implemented.');
-                    } }                    
-                  />
+                  <>
+                    <Projects
+                      key={index}
+                      cardImg={typeof project.image === 'string' ? project.image : ''}
+                      cardTitle={project.name}
+                      cardDescription={project.description} 
+                      readMore={() => handleOpen(project.id)}  
+                                       
+                    />
+                    <Project key={project.id} isOpen={activeProjectId === project.id} handleOpen={handleClose} title={project.name} description={project.description} image={project.image}/>
+                  </>
                 ))
               }
               </Carousel>
