@@ -6,24 +6,32 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import ProjectContent from "./ProjectContent";
  
-export function DialogDefault() {
-  const [open, setOpen] = useState(false);
+interface ProjectProps {
+  isOpen: boolean;
+  handleOpen: () => void;
+  title: string;
+  description: string;
+  image: string;
+  key: string
+}
+
+
+
+
+
+export function Project({ isOpen, handleOpen, ...props }: ProjectProps) {
+  // const [open, setOpen] = useState(false);
  
-  const handleOpen = () => setOpen(!open);
+  // const handleOpen = () => setOpen(!open);
  
   return (
     <>
-      <Button onClick={handleOpen} variant="gradient">
-        Open Dialog
-      </Button>
-      <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Its a simple dialog.</DialogHeader>
+      <Dialog open={isOpen} handler={handleOpen} key={props.key}>
+        <DialogHeader>{props.title}</DialogHeader>
         <DialogBody>
-          The key to more success is to have a lot of pillows. Put it this way,
-          it took me twenty five years to get these plants, twenty five years of
-          blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-          getting started. I&apos;m up to something. Fan luv.
+          <ProjectContent projectImages={props.image} projectTitle={props.title} projectContent={props.description}/>
         </DialogBody>
         <DialogFooter>
           <Button
