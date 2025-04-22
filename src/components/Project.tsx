@@ -13,7 +13,7 @@ interface ProjectProps {
   handleOpen: () => void;
   title: string;
   description: string;
-  image: string;
+  image: Array<string>;
   key: string
 }
 
@@ -29,7 +29,7 @@ export function Project({ isOpen, handleOpen, ...props }: ProjectProps) {
   return (
     <>
       <Dialog open={isOpen} handler={handleOpen} key={props.key}>
-        <DialogHeader>{props.title}</DialogHeader>
+        <DialogHeader className="flex flex-col items-center justify-center text-3xl font-extrabold">{props.title}</DialogHeader>
         <DialogBody>
           <ProjectContent projectImages={props.image} projectTitle={props.title} projectContent={props.description}/>
         </DialogBody>

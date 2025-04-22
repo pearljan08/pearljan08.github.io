@@ -122,7 +122,7 @@ function App() {
                   <>
                     <Projects
                       key={index}
-                      cardImg={typeof project.image === 'string' ? project.image : ''}
+                      cardImg={project.image[0] || ''}
                       cardTitle={project.name}
                       cardDescription={project.description} 
                       readMore={() => handleOpen(project.id)}  
