@@ -1,5 +1,6 @@
 export const backendList = [
-    { name: 'Node.js' },
+    { name: 'Node JS' },
+    { name: 'Nest JS' },
     { name: 'PHP' },
     { name: 'CodeIgniter' },
     { name: 'MySQL'},
@@ -11,4 +12,5 @@ export const frontendList = [
     { name: 'JavaScript' },
     { name: 'Bootstrap'},
     { name: 'Tailwind CSS' },
+    { name: 'TypeScript' },
 ]

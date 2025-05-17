@@ -1,6 +1,6 @@
 import './App.css'
 import me from './assets/me.jpg';
-import { BeakerIcon, BookOpenIcon, BriefcaseIcon, ChevronLeftIcon, ClipboardDocumentListIcon, CogIcon } from '@heroicons/react/24/solid';
+import { BeakerIcon, BookOpenIcon, BriefcaseIcon, ClipboardDocumentListIcon, CogIcon } from '@heroicons/react/24/solid';
 import { BulletList } from './components/BulletList';
 import { experienceList } from './components/ExperienceList';
 import TechStack from './components/TechStack';
