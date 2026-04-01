@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import SectionWrapper from '../ui/SectionWrapper';
 import SectionHeading from '../ui/SectionHeading';
+import SlotCounter from '../ui/SlotCounter';
 import me from '../../assets/me.jpg';
 
 export default function About() {
@@ -50,12 +51,19 @@ export default function About() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-8">
             {[
-              { value: '5+', label: 'Years Experience' },
-              { value: '3+', label: 'Projects Built' },
-              { value: '5', label: 'Companies' },
+              { value: 5, suffix: '+', label: 'Years Experience', delay: 0 },
+              { value: 3, suffix: '+', label: 'Projects Built',   delay: 150 },
+              { value: 5, suffix: '',  label: 'Companies',        delay: 300 },
             ].map((stat) => (
               <div key={stat.label} className="text-center md:text-left">
-                <p className="text-2xl font-bold text-accent">{stat.value}</p>
+                <p className="text-2xl font-bold">
+                  <SlotCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    duration={1400}
+                    delay={stat.delay}
+                  />
+                </p>
                 <p className="text-gray-500 text-sm mt-1">{stat.label}</p>
               </div>
             ))}
