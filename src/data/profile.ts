@@ -31,8 +31,7 @@ export const roles: Role[] = [
     id: 'questronix-now',
     company: 'Questronix Corporation',
     title: 'Fullstack Developer',
-    // TODO: confirm the start month of the current Questronix engagement
-    period: '2025 — Present',
+    period: 'Apr 2026 — Present',
     current: true,
     client: 'Banking client · Salary loans',
     summary:
