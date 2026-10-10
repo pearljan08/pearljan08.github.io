@@ -1,31 +1,194 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
 
-html {
-  scroll-behavior: smooth;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #f3efe6;
+  --surface: #ebe6da;
+  --ink: #17150f;
+  --muted: #6a6458;
+  --line: #d6cfbf;
+  --accent: #c2410c;
+  --accent-soft: rgb(194 65 12 / 0.1);
+  color-scheme: light;
 }
 
-body {
-  background-color: #0a0a0a;
-  color: #f3f4f6;
-  font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root[data-theme="dark"] {
+  --bg: #0e0d0b;
+  --surface: #171612;
+  --ink: #ebe5d8;
+  --muted: #918a7c;
+  --line: #2b2923;
+  --accent: #ff7a3d;
+  --accent-soft: rgb(255 122 61 / 0.12);
+  color-scheme: dark;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 }
 
-::-webkit-scrollbar-track {
-  background: #111827;
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 4px;
+/* ---------- Components ---------- */
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .shell { padding-inline: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .shell { padding-inline: 2.5rem; }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .link {
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.2s ease;
+  }
+  .link:hover {
+    background-size: 100% 1px;
+    color: var(--accent);
+  }
+
+  .pulse {
+    position: relative;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: #22c55e;
+  }
+  .pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes ping {
+    75%, 100% { transform: scale(2.4); opacity: 0; }
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
+/* ---------- Scroll reveal (progressive: content is visible without JS) ---------- */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero name: letters rise in on load */
+.rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.35em); }
+}
+
+/* ---------- Gallery dialog ---------- */
+dialog.gallery {
+  max-width: min(72rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+}
+dialog.gallery::backdrop {
+  background: rgb(10 9 8 / 0.7);
+  backdrop-filter: blur(4px);
+}
+dialog.gallery[open] {
+  animation: pop 0.25s ease both;
+}
+@keyframes pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js [data-reveal] { transform: none; }
 }

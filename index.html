@@ -1,31 +1,50 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
-    <meta name="theme-color" content="#6366f1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pearl Jan Sabanal — Fullstack Developer</title>
+    <meta name="description" content="Pearl Jan Sabanal is a fullstack developer from the Philippines with 5+ years building banking, SaaS and enterprise web systems with PHP, CodeIgniter, React, TypeScript and Node.js." />
+    <meta name="author" content="Pearl Jan Sabanal" />
+    <link rel="canonical" href="https://pearljan08.github.io/" />
 
-    <!-- SEO / Open Graph -->
-    <meta name="description" content="Pearl Jan Sabanal — Fullstack Developer specializing in React, Vue, Node.js, and modern web technologies." />
-    <meta property="og:title" content="Pearl Jan Sabanal | Fullstack Developer" />
-    <meta property="og:description" content="Crafting user-friendly interfaces and optimizing performance to deliver impactful web experiences." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pearljan08.github.io/" />
+    <meta property="og:title" content="Pearl Jan Sabanal — Fullstack Developer" />
+    <meta property="og:description" content="Fullstack developer building loan origination, SaaS and enterprise web systems." />
+    <meta name="twitter:card" content="summary" />
 
-    <!-- Fonts -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)" />
+
+    <!-- Set the theme before first paint so there's no flash -->
+    <script>
+      (function () {
+        var t;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = t;
+        document.documentElement.classList.add('js');
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pearl Jan Sabanal | Fullstack Developer</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding:2rem;font-family:system-ui">
+        Pearl Jan Sabanal — Fullstack Developer. Email: pearljan08@gmail.com · GitHub: github.com/pearljan08
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
