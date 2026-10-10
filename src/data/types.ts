@@ -34,8 +34,11 @@ export interface Project {
   description: string;
   features: string[];
   stack: string[];
-  cover: string;
   shots: Shot[];
+  /** Link to a live, standalone demo of the project */
+  demo?: { href: string; label: string };
+  /** Short note shown under the description, e.g. why a demo stands in for the real thing */
+  note?: string;
 }
 
 export interface StackGroup {

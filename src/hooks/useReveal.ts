@@ -18,7 +18,8 @@ export function useReveal() {
           }
         }
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+      // A small fixed margin, so content at the very bottom of the page can still reveal
+      { rootMargin: '0px 0px -24px 0px', threshold: 0 },
     );
 
     els.forEach((el) => io.observe(el));

@@ -1,11 +1,8 @@
 import type { EarlierRole, Link, Project, Role, StackGroup } from './types';
 
-import aims from '../assets/aims.png';
 import aims1 from '../assets/aims1.jpg';
-import los from '../assets/csb.png';
-import los1 from '../assets/csb1.jpg';
-import los2 from '../assets/csb2.jpg';
-import hris from '../assets/gcg.png';
+import losLight from '../assets/los-demo-light.jpg';
+import losDark from '../assets/los-demo-dark.jpg';
 import hris1 from '../assets/gcg1.png';
 import hris2 from '../assets/gcg2.jpg';
 import hris3 from '../assets/gcg3.png';
@@ -80,7 +77,7 @@ export const roles: Role[] = [
     title: 'Fullstack Developer II',
     period: 'Jan 2022 — Aug 2024',
     client: 'Banking client',
-    summary: 'Designed and built fullstack web applications on CodeIgniter and MySQL, including the bank’s LOS.',
+    summary: 'Designed and built fullstack web applications on CodeIgniter and MySQL, including a bank’s loan origination system.',
     highlights: [
       'Built REST APIs and integrated third-party services.',
       'Improved application performance and database efficiency.',
@@ -116,21 +113,17 @@ export const projects: Project[] = [
     name: 'LOS',
     fullName: 'Loan Origination System',
     context: 'Banking client · Questronix',
-    year: '2022 — 2024',
+    year: '2022 — 2024, 2026 —',
     description:
-      'An internal system for the bank’s salary loan business. Loan officers take in applications, look up a borrower’s existing loans, and compute re-loans and top-ups down to fees, taxes and maturity dates. Every application then moves through a maker/checker approval flow.',
-    features: [
-      'Re-loan & top-up computations',
-      'Existing-loan lookup',
-      'Co-obligor & household income',
-      'Maker / checker roles',
-    ],
+      'Loan origination for a bank’s salary loan business. Loan officers take in applications, look up a borrower’s existing loans, and compute new loans and re-loans down to fees, rebates and take-home pay. Every application then moves through a maker/checker approval flow.',
+    note: 'The real system is under NDA, so I rebuilt its core as a fictional, interactive demo in plain TypeScript. Try submitting as a maker and approving as a checker.',
+    features: ['Re-loan computations', 'Rule of 78 rebates', 'Take-home pay checks', 'Maker / checker flow'],
     stack: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
-    cover: los,
     shots: [
-      { src: los1, caption: 'Loan info: amounts, terms and computed fees', width: 1600, height: 689 },
-      { src: los2, caption: 'Rebate calculator for paying off an existing loan', width: 1600, height: 652 },
+      { src: losLight, caption: 'Demo: re-loan computation with payoff and rebate', width: 1440, height: 1000 },
+      { src: losDark, caption: 'Demo: dark mode', width: 1440, height: 1000 },
     ],
+    demo: { href: '/demo/los/', label: 'Try the live demo' },
   },
   {
     id: 'hris',
@@ -142,7 +135,6 @@ export const projects: Project[] = [
       'An ERP-style HR suite for a government commission. It covers employee records, leave and overtime, payroll setup, and property requisitions, plus a task calendar and company bulletin board on a role-based dashboard.',
     features: ['Employee records', 'Leave & overtime', 'Payroll setup', 'Property requisitions'],
     stack: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
-    cover: hris,
     shots: [
       { src: hris1, caption: 'Admin dashboard and task calendar', width: 1236, height: 446 },
       { src: hris2, caption: 'Payroll type maintenance', width: 1600, height: 900 },
@@ -159,7 +151,6 @@ export const projects: Project[] = [
       'An academic platform with separate portals for students, faculty and administrators. Students register for subjects, view assessments and statements of account, and manage their profiles. It is deployed at schools including La Consolacion College Caloocan.',
     features: ['Student access module', 'Subject registration', 'Assessments & SOA', 'Faculty & admin portals'],
     stack: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
-    cover: aims,
     shots: [
       { src: aims1, caption: 'Student access module, La Consolacion College Caloocan', width: 1600, height: 501 },
     ],
@@ -180,6 +171,9 @@ export const stack: StackGroup[] = [
 export const links: Link[] = [
   { label: 'Email', href: `mailto:${profile.email}`, display: profile.email },
   { label: 'GitHub', href: 'https://github.com/pearljan08', display: 'github.com/pearljan08' },
-  // TODO: add LinkedIn once you have the profile URL
-  // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/<handle>', display: 'linkedin.com/in/<handle>' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/pearl-jan-sabanal-0b3402187/',
+    display: 'linkedin.com/in/pearl-jan-sabanal',
+  },
 ];

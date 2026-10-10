@@ -26,25 +26,12 @@ export default function Work() {
         {projects.map((p, i) => (
           <li key={p.id} className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className={`lg:col-span-5 ${i % 2 ? 'lg:order-2' : ''}`} data-reveal>
-              <div className="flex items-center gap-4">
-                <img
-                  src={p.cover}
-                  alt=""
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-14 w-14 rounded-md border border-line object-cover"
-                />
-                <div>
-                  <p className="eyebrow">
-                    {String(i + 1).padStart(2, '0')} · {p.year}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{p.context}</p>
-                </div>
-              </div>
+              <p className="eyebrow">
+                {String(i + 1).padStart(2, '0')} · {p.year}
+              </p>
+              <p className="mt-1 text-sm text-muted">{p.context}</p>
 
-              <h3 className="mt-6 font-serif text-5xl leading-none tracking-tight sm:text-6xl">
+              <h3 className="mt-5 font-serif text-5xl leading-none tracking-tight sm:text-6xl">
                 {p.name}
                 <span className="mt-2 block font-sans text-base font-medium tracking-normal text-muted">
                   {p.fullName}
@@ -52,6 +39,9 @@ export default function Work() {
               </h3>
 
               <p className="mt-6 leading-relaxed">{p.description}</p>
+              {p.note && (
+                <p className="mt-4 border-l-2 border-accent pl-4 text-[0.95rem] leading-relaxed text-muted">{p.note}</p>
+              )}
 
               <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                 {p.features.map((f) => (
@@ -72,14 +62,25 @@ export default function Work() {
                 ))}
               </ul>
 
-              <button
-                type="button"
-                onClick={() => setOpen({ project: p, index: 0 })}
-                className="link mt-8 inline-flex items-center gap-1.5 font-mono text-sm"
-              >
-                View {p.shots.length} screen{p.shots.length > 1 ? 's' : ''}
-                <ArrowUpRight />
-              </button>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                {p.demo && (
+                  <a
+                    href={p.demo.href}
+                    className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-colors hover:bg-accent"
+                  >
+                    {p.demo.label}
+                    <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setOpen({ project: p, index: 0 })}
+                  className="link inline-flex items-center gap-1.5 font-mono text-sm"
+                >
+                  View {p.shots.length} screen{p.shots.length > 1 ? 's' : ''}
+                  <Expand />
+                </button>
+              </div>
             </div>
 
             <button

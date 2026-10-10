@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lendline LOS — Interactive demo · Pearl Jan Sabanal</title>
+    <meta name="description" content="An interactive, fictional re-creation of a salary-loan origination system: re-loan computations, rule-of-78 rebates, NTHP checks and a maker/checker approval flow." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f5f6f8" />
+  </head>
+  <body>
+    <div class="demo-banner" role="note">
+      <span><strong>Demo:</strong> a fictional re-creation of a loan origination system I work on. All names, numbers and rules are made up, and nothing leaves your browser.</span>
+      <span class="demo-banner-links">
+        <button type="button" data-action="reset">Reset demo</button>
+        <a href="/#work">← Back to portfolio</a>
+      </span>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span>Lendline <span class="muted">LOS</span></span>
+        <span class="module">Salary Loans</span>
+      </div>
+      <div class="topbar-right">
+        <div class="segmented" role="group" aria-label="Acting role">
+          <button type="button" data-role="maker">Maker</button>
+          <button type="button" data-role="checker">Checker</button>
+        </div>
+        <span class="user" id="user"></span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="queue" aria-label="Application queue">
+        <div class="queue-head">
+          <h2>Applications</h2>
+          <button type="button" class="btn btn-primary btn-sm" data-action="new" id="new-btn">+ New</button>
+        </div>
+        <ul id="queue"></ul>
+      </aside>
+      <main id="detail" class="detail"></main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

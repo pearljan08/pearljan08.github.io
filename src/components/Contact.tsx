@@ -54,7 +54,7 @@ export default function Contact() {
         </button>
       </div>
 
-      <ul className="mt-16 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2" data-reveal>
+      <ul className="mt-16 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3" data-reveal>
         {links.map((l) => (
           <li key={l.label} className="bg-bg">
             <a
