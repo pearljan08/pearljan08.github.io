@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harbor HRIS — Interactive demo · Pearl Jan Sabanal</title>
+    <meta name="description" content="An interactive, fictional re-creation of an HR information system: employee records, leave and overtime approvals, semi-monthly payroll and supply requisitions." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f5f6f8" />
+  </head>
+  <body>
+    <div class="demo-banner" role="note">
+      <span><strong>Demo:</strong> a fictional re-creation of an HR system I built. All names, numbers and rules are made up, and nothing leaves your browser.</span>
+      <span class="demo-banner-links">
+        <button type="button" data-action="reset">Reset demo</button>
+        <a href="/#work">← Back to portfolio</a>
+      </span>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>Harbor <span class="muted">HRIS</span></span>
+        <span class="module">Kalinaw Holdings (demo)</span>
+      </div>
+      <div class="topbar-right">
+        <div class="segmented" role="group" aria-label="Acting role">
+          <button type="button" data-role="employee">Employee</button>
+          <button type="button" data-role="hr">HR admin</button>
+        </div>
+        <span class="user" id="user"></span>
+      </div>
+    </header>
+
+    <div class="app">
+      <nav class="nav" aria-label="Modules" id="nav"></nav>
+      <main id="view" class="view"></main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

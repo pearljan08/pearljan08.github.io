@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus AIMS — Interactive demo · Pearl Jan Sabanal</title>
+    <meta name="description" content="An interactive, fictional re-creation of an academic information system: subject enlistment with prerequisite and schedule checks, assessment and statement of account, grade encoding and registrar validation." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f5f6f8" />
+  </head>
+  <body>
+    <div class="demo-banner" role="note">
+      <span><strong>Demo:</strong> a fictional re-creation of an academic system I worked on. All names, numbers and rules are made up, and nothing leaves your browser.</span>
+      <span class="demo-banner-links">
+        <button type="button" data-action="reset">Reset demo</button>
+        <a href="/#work">← Back to portfolio</a>
+      </span>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>Campus <span class="muted">AIMS</span></span>
+        <span class="module" id="term"></span>
+      </div>
+      <div class="topbar-right">
+        <div class="segmented" role="group" aria-label="Acting role">
+          <button type="button" data-role="student">Student</button>
+          <button type="button" data-role="faculty">Faculty</button>
+          <button type="button" data-role="registrar">Registrar</button>
+        </div>
+        <span class="user" id="user"></span>
+      </div>
+    </header>
+
+    <div class="app">
+      <nav class="nav" aria-label="Modules" id="nav"></nav>
+      <main id="view" class="view"></main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

@@ -19,7 +19,7 @@ export default function Work() {
             Systems people <em className="text-accent">rely on</em>
           </>
         }
-        aside="Production systems for a bank, a government commission and schools. Select a project to see its screens."
+        aside="Production systems for a bank, a government commission and schools. Each one has a fictional, clickable demo you can try."
       />
 
       <ol className="space-y-20 sm:space-y-28">

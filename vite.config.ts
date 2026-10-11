@@ -12,6 +12,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         los: 'demo/los/index.html',
+        hris: 'demo/hris/index.html',
+        aims: 'demo/aims/index.html',
       },
     },
   },

@@ -3,6 +3,10 @@ import type { EarlierRole, Link, Project, Role, StackGroup } from './types';
 import aims1 from '../assets/aims1.jpg';
 import losLight from '../assets/los-demo-light.jpg';
 import losDark from '../assets/los-demo-dark.jpg';
+import hrisLight from '../assets/hris-demo-light.jpg';
+import hrisDark from '../assets/hris-demo-dark.jpg';
+import aimsLight from '../assets/aims-demo-light.jpg';
+import aimsDark from '../assets/aims-demo-dark.jpg';
 import hris1 from '../assets/gcg1.png';
 import hris2 from '../assets/gcg2.jpg';
 import hris3 from '../assets/gcg3.png';
@@ -43,11 +47,12 @@ export const roles: Role[] = [
   },
   {
     id: 'cognitive',
-    company: 'Cognitive AI',
-    title: 'Freelance Software Developer',
+    company: 'Freelance',
+    title: 'Software Developer',
     period: 'Apr 2025 — Present',
     current: true,
-    summary: 'Building web applications in React and TypeScript on a Node.js and PostgreSQL backend.',
+    client: 'Remote · Contract work',
+    summary: 'Building web applications for clients in React and TypeScript, on a Node.js and PostgreSQL backend.',
     highlights: [
       'Build reusable, scalable UI components and keep state management and API layers clean.',
       'Improve performance with memoization, lazy loading and careful rendering.',
@@ -133,13 +138,17 @@ export const projects: Project[] = [
     year: '2020',
     description:
       'An ERP-style HR suite for a government commission. It covers employee records, leave and overtime, payroll setup, and property requisitions, plus a task calendar and company bulletin board on a role-based dashboard.',
-    features: ['Employee records', 'Leave & overtime', 'Payroll setup', 'Property requisitions'],
+    note: 'I rebuilt its core as a fictional, interactive demo in plain TypeScript. File a leave as an employee, then switch to HR admin to approve it and watch the balance and payroll update.',
+    features: ['Employee records', 'Leave & overtime', 'Semi-monthly payroll', 'Supply requisitions'],
     stack: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
     shots: [
-      { src: hris1, caption: 'Admin dashboard and task calendar', width: 1236, height: 446 },
-      { src: hris2, caption: 'Payroll type maintenance', width: 1600, height: 900 },
-      { src: hris3, caption: 'Requisition and issue slip', width: 931, height: 560 },
+      { src: hrisLight, caption: 'Demo: HR dashboard with task calendar and bulletin board', width: 1424, height: 1000 },
+      { src: hrisDark, caption: 'Demo: payroll register and payslip, dark mode', width: 1424, height: 1000 },
+      { src: hris1, caption: 'Original system: admin dashboard and task calendar', width: 1236, height: 446 },
+      { src: hris2, caption: 'Original system: payroll type maintenance', width: 1600, height: 900 },
+      { src: hris3, caption: 'Original system: requisition and issue slip', width: 931, height: 560 },
     ],
+    demo: { href: '/demo/hris/', label: 'Try the live demo' },
   },
   {
     id: 'aims',
@@ -149,11 +158,15 @@ export const projects: Project[] = [
     year: '2019 — 2020',
     description:
       'An academic platform with separate portals for students, faculty and administrators. Students register for subjects, view assessments and statements of account, and manage their profiles. It is deployed at schools including La Consolacion College Caloocan.',
-    features: ['Student access module', 'Subject registration', 'Assessments & SOA', 'Faculty & admin portals'],
+    note: 'I rebuilt its core as a fictional, interactive demo in plain TypeScript. Enlist as a student, validate as the registrar, then encode grades as faculty.',
+    features: ['Subject enlistment', 'Prerequisite & schedule checks', 'Assessments & SOA', 'Faculty grade sheets'],
     stack: ['PHP', 'CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
     shots: [
-      { src: aims1, caption: 'Student access module, La Consolacion College Caloocan', width: 1600, height: 501 },
+      { src: aimsLight, caption: 'Demo: subject enlistment with live assessment', width: 1424, height: 1000 },
+      { src: aimsDark, caption: 'Demo: faculty grade sheet, dark mode', width: 1424, height: 1000 },
+      { src: aims1, caption: 'Original system: student access module, La Consolacion College Caloocan', width: 1600, height: 501 },
     ],
+    demo: { href: '/demo/aims/', label: 'Try the live demo' },
   },
 ];
 
