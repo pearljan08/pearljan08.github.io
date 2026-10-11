@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { profile } from '../data/profile';
 import { useTheme } from '../hooks/useTheme';
 import { Moon, Sun } from './Icons';
 
@@ -42,6 +43,11 @@ export default function Header() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="link text-muted hover:text-ink">
+                  Resume
+                </a>
+              </li>
             </ul>
           </nav>
 

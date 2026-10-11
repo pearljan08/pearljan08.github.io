@@ -54,12 +54,12 @@ export default function Contact() {
         </button>
       </div>
 
-      <ul className="mt-16 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3" data-reveal>
+      <ul className="mt-16 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4" data-reveal>
         {links.map((l) => (
           <li key={l.label} className="bg-bg">
             <a
               href={l.href}
-              {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              {...(l.href.startsWith('http') || l.href.endsWith('.pdf') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="group flex items-center justify-between gap-4 p-5 transition-colors hover:bg-surface sm:p-6"
             >
               <span>

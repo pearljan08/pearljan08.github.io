@@ -18,6 +18,7 @@ export const profile = {
   email: 'pearljan08@gmail.com',
   yearsLabel: '5+',
   since: 2019,
+  resume: '/Pearl-Jan-Sabanal-Resume.pdf',
   intro:
     'I build the systems behind loan approvals, SaaS consoles and everyday business tools: database schema, API and interface.',
   now: 'Building loan origination features for a bank’s salary loans program at Questronix.',
@@ -189,4 +190,5 @@ export const links: Link[] = [
     href: 'https://www.linkedin.com/in/pearl-jan-sabanal-0b3402187/',
     display: 'linkedin.com/in/pearl-jan-sabanal',
   },
+  { label: 'Resume', href: profile.resume, display: 'Download PDF' },
 ];
